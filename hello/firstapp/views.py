@@ -1,6 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponsePermanentRedirect
 from django.shortcuts import render
 from django.http import *
+from . forms import UserForm
 
 
 # def index(request):
@@ -18,8 +19,9 @@ from django.http import *
 #     return render(request, "index.html", context=data)
 
 def index(request):
-    cat = ["Ноутюуки", "Принтеры", "Сканеры", "Диски", "Шнуры"]
-    return render(request, "firstapp/index.html", context={"cat": cat})
+    userform = UserForm()
+    return render(request, "firstapp/index.html", {"form": userform})
+
 
 def about(request):
     return HttpResponse("About")
